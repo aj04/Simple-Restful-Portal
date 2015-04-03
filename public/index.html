@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CM App</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/angular.js"></script>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="CMApp">
+    <div class="container" ng-controller="CMAppController">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <input ng-model="developer.firstName" class="form-control">
+                    </th>
+                    <th>
+                        <input ng-model="developer.lastName" class="form-control">
+                    </th>
+                    <th>
+                        <button ng-click="add(developer)" class="btn btn-success pull-right">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                        <button ng-click="update(developer)" class="btn btn-primary pull-right">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="developer in developers">
+                    <td>{{developer.firstName}}</td>
+                    <td>{{developer.lastName}}</td>
+                    <td>
+                        <button ng-click="remove($index)" class="btn btn-danger pull-right">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+
+                        <button ng-click="select($index)" class="btn btn-warning pull-right">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>   
+    </div>
+</body>
+</html>
